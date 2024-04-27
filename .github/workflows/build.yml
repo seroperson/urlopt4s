@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-all:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Java version
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'liberica'
+          java-version: '17'
+      - name: Check code format
+        uses: jrouly/scalafmt-native-action@v1
+        with:
+          version: "3.8.1"
+          arguments: "-c .scalafmt.conf --test example urlopt4s"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+          cache: 'npm'
+          cache-dependency-path: urlopt4s-js/package-lock.json
+      - name: Install dependencies
+        run: cd urlopt4s-js && npm install webpack-cli --save-dev
+      - name: Compile urlopt4s-js
+        run: cd urlopt4s-js && npm exec webpack
+      - name: Moving bundle
+        run: mv urlopt4s-js/dist/main-bundle.mjs urlopt4s/resources/urlopt4s.mjs
+      - uses: jodersky/setup-mill@v0.3.0
+        with:
+          mill-version: 0.11.7
+      - name: Compile
+        run: mill '__.compile'
+      - name: Test
+        run: mill '__.test'

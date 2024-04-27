@@ -1,0 +1,3 @@
+# Allows .md wrapping
+proseWrap: always
+

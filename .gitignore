@@ -1,0 +1,15 @@
+# scala
+out/
+.bsp/
+.metals/
+.bloop/
+
+# ide
+.idea/
+
+# js
+node_modules/
+dist/
+
+# compiled js bundle
+urlopt4s/resources/urlopt4s.mjs
