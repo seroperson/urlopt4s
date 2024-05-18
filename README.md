@@ -7,8 +7,10 @@
 This small library allows you to remove advertising and tracking query
 parameters from a given URL in Scala. It does not contain any filtering logic
 itself, but instead uses part of the JS [AdGuard][1] adblocker engine under the
-hood. Sometimes this method can be excessive, so [read on](#preface) to find out
-why we need to do it this way.
+hood. So, besides of its’ main function, you can treat this library as a some
+kind of PoC that it is totally possible to run any (almost) kind of JS code on
+a JVM. Sometimes this method can be excessive, so [read on](#preface) to find
+out why we need to do it this way.
 
 ## Installation
 
