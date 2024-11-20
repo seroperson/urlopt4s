@@ -76,11 +76,10 @@ object UrlOptimizer {
                 Paths.get("urlopt4s.mjs"),
                 () =>
                   new ReadOnlySeekableByteArrayChannel(
-                    Source
-                      .fromResource("urlopt4s.mjs")
-                      .getLines()
-                      .mkString("\n")
-                      .getBytes()
+                    getClass()
+                      .getClassLoader()
+                      .getResourceAsStream("urlopt4s.mjs")
+                      .readAllBytes()
                   )
               )
             )
@@ -121,7 +120,7 @@ object UrlOptimizer {
       rulesText match {
         case Some(rules) => Async[F].pure(rules)
         case None => Async[F].delay {
-            Source.fromResource("rules.txt").getLines().mkString("\n")
+            Source.fromResource("rules.txt").mkString
           }
       }
     }

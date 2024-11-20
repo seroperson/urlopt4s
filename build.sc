@@ -56,7 +56,7 @@ object urlopt4s extends Cross[UrlOpt4sModule](Version.scalaCross)
 
 trait UrlOpt4sModule extends BaseModule with PublishModule {
 
-  override def publishVersion: T[String] = "0.1.0"
+  override def publishVersion: T[String] = "0.2.0"
 
   override def pomSettings = PomSettings(
     description =
