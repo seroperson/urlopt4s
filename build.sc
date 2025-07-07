@@ -5,7 +5,8 @@ import mill.scalalib.publish._
 object Version {
   val scala212 = "2.12.18"
   val scala213 = "2.13.13"
-  val scalaCross = Seq(scala212, scala213)
+  val scala336 = "3.3.6"
+  val scalaCross = Seq(scala212, scala213, scala336)
 
   val cats = "2.10.0"
   val catsEffect = "3.5.4"
