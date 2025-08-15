@@ -8,22 +8,22 @@ This small library allows you to remove advertising and tracking query
 parameters from a given URL in Scala. It does not contain any filtering logic
 itself, but instead uses part of the JS [AdGuard][1] adblocker engine under the
 hood. So, besides of its’ main function, you can treat this library as a some
-kind of PoC that it is totally possible to run any (almost) kind of JS code on
-a JVM. Sometimes this method can be excessive, so [read on](#preface) to find
-out why we need to do it this way.
+kind of PoC that it is totally possible to run any (almost) kind of JS code on a
+JVM. Sometimes this method can be excessive, so [read on](#preface) to find out
+why we need to do it this way.
 
 ## Installation
 
 In case if you use `sbt`:
 
 ```sbt
-libraryDependencies += "me.seroperson" %% "urlopt4s" % "0.2.0"
+libraryDependencies += "me.seroperson" %% "urlopt4s" % "0.3.0"
 ```
 
 In case of `mill`:
 
 ```scala
-ivy"me.seroperson::urlopt4s::0.2.0"
+ivy"me.seroperson::urlopt4s::0.3.0"
 ```
 
 ## How to use it

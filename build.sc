@@ -8,13 +8,13 @@ object Version {
   val scala336 = "3.3.6"
   val scalaCross = Seq(scala212, scala213, scala336)
 
-  val cats = "2.10.0"
-  val catsEffect = "3.5.4"
+  val cats = "2.13.0"
+  val catsEffect = "3.6.3"
 
-  val zio = "2.0.22"
-  val zioInteropCats = "23.1.0.2"
+  val zio = "2.1.20"
+  val zioInteropCats = "23.1.0.5"
 
-  val graalvm = "23.1.1"
+  val graalvm = "24.2.2"
 }
 
 object Library {
@@ -44,11 +44,7 @@ trait BaseModule extends CrossScalaModule {
     "-language:_",
     "-encoding",
     "UTF-8",
-    "-feature",
-    "-unchecked",
-    "-Xlint:_",
-    "-Wconf:cat=lint-byname-implicit:s",
-    "-Ywarn-dead-code"
+    "-feature"
   )
 
 }
@@ -57,7 +53,7 @@ object urlopt4s extends Cross[UrlOpt4sModule](Version.scalaCross)
 
 trait UrlOpt4sModule extends BaseModule with PublishModule {
 
-  override def publishVersion: T[String] = "0.2.0"
+  override def publishVersion: T[String] = "0.3.0"
 
   override def pomSettings = PomSettings(
     description =
